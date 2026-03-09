@@ -12,10 +12,6 @@
     <a href="/">home</a>
     |
     <a href="/privacy">privacy</a>
-    |
-    <a href="/food">food</a>
-    |
-    <a href="/evenform">form to input number and test its even'ness</a>
 
 </nav>
 <hr>
