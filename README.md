@@ -61,7 +61,7 @@ In the new directory we create a Svelte page file (`+page.svelte`), that imports
 ```
 
 
-## Question 3a - Route with data `/oddeven`
+## Question 3b - Route with no number `/oddeven`
 
 In directory `/routes/oddeven` we need to create a Svelte page file (`+page.svelte`). This is a simple page that will output the error message about missing parameter:
 
