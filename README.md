@@ -38,6 +38,8 @@ First, we need to write a simple server script with a `load()` function, to extr
 - since we named the folder `[n]` then `n` is the name of the parameter we can extract from the request URL
 - create file `/routes/oddeven/[n]/+page.server.js` that contains the following:
 
+`/routes/oddeven/[n]/+page.server.js`
+
 ```javascript
 export function load({ params }) {
   let n = params.n;
