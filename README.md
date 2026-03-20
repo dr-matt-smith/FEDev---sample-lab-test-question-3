@@ -34,13 +34,28 @@ The files in this repo are the solution I created to this sample test
 
 We need to create a directory `/routes/oddeven/[n]`. This will name the number at the end of the URL as a Request parameter `n`.
 
-In the new directory we create a Svelte page file (`+page.svelte`), that imports the function `isEven()`, extras the `n` property send by a server script, and creates an ondd or even message about the number as appropriate.
+First, we need to write a simple server script with a `load()` function, to extract the value of `[n]` from the HTTP request URL.
+- since we named the folder `[n]` then `n` is the name of the parameter we can extract from the request URL
+- create file `/routes/oddeven/[n]/+page.server.js` that contains the following:
+
+```javascript
+export function load({ params }) {
+  let n = params.n;
+
+  return {
+    n
+  }
+}
+```
+
+In the new directory we create a Svelte page file (`+page.svelte`), that imports the function `isEven()`, extracts the `n` property sent by our server script, and creates an odd or even message about the number as appropriate:
+- when we get the properties (`props`) send from our server script `load()` function, we can then extract `n` from this data
 
 `/routes/oddeven/[n]/+page.svelte`
 
 ```javascript
 <svelte:head>
-  <title>-- oddeven/<n> --</title>
+  <title>-- oddeven/n --</title>
 </svelte:head>
 
 <script>
@@ -51,8 +66,8 @@ In the new directory we create a Svelte page file (`+page.svelte`), that imports
 
   let message = n + ' is an ODD number';
   if(isEven(n)) {
-  message = n + ' is an EVEN number';
-}
+      message = n + ' is an EVEN number';
+  }
 </script>
 
 <p>

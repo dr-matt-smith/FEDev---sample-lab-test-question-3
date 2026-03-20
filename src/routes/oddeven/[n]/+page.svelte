@@ -1,5 +1,5 @@
 <svelte:head>
-    <title>-- oddeven/<n> --</title>
+    <title>-- oddeven/n --</title>
 </svelte:head>
 
 <script>
